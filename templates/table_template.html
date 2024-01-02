@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #student-info {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #student-info p {
+            font-size: 16px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        #percentage {
+            font-size: 18px;
+            font-weight: bold;
+            color: #008000; /* Green color for percentage */
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 40%; /* Set the width of the table */
+            margin: 20px auto;
+            background-color: #D2E9AF; /* Set the light olive background color of the table */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .social-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 0.1in; /* Set the gap between logos to half inch */
+            justify-content: center;
+        }
+
+        .social-links {
+            background-color: #778899; /* Set the light olive background color of the social container */
+            padding: 5px;
+            border-radius: 15px; /* Add rounded corners to the social container */
+        }
+
+        .social-link {
+            transition: background-color 0.3s ease;
+            margin-right: 0.1in; /* Set the right margin to half inch */
+            text-decoration: none; /* Remove underline */
+            color: #333; /* Set the link color */
+        }
+
+        .social-link img {
+            border-radius: 100%; /* Make the logos circular */
+        }
+
+        #personal-info {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Marks</h1>
+    <div id="student-info">
+        <p>Name: <span id="student-name">{{ name }}</span></p>
+        <p id="percentage">Percentage: <span style="color: #008000;">{{ percentage }}%</span></p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>SlNo</th>
+                <th>Semester</th>
+                <th>Result</th>
+                <th>Credits</th>
+                <th>SGPA</th>
+                <th>CGPA</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in table_data %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Social links with click effect -->
+    <div class="social-container">
+        <div class="social-links">
+            <a href="mailto:debbatisudheerpatel@gmail.com" target="_blank" class="social-link" onclick="toggleClick(this)">
+                <img src="{{ url_for('static', filename='gmaillogo.png') }}" alt="Gmail Logo" width="20" height="20">
+            </a>
+
+            <a href="https://www.linkedin.com/in/sudheer-debbati-50a014235" target="_blank" class="social-link" onclick="toggleClick(this)">
+                <img src="{{ url_for('static', filename='linkedinlogo.png') }}" alt="LinkedIn Logo" width="20" height="20">
+            </a>
+
+            <a href="https://github.com/Debbatisudheer" target="_blank" class="social-link" onclick="toggleClick(this)">
+                <img src="{{ url_for('static', filename='gitlogo.png') }}" alt="GitHub Logo" width="20" height="20">
+            </a>
+
+            <a href="https://www.snapchat.com/add/your-snapchat-username" target="_blank" class="social-link" onclick="toggleClick(this)">
+                <img src="{{ url_for('static', filename='snaplogo.jpeg') }}" alt="Snapchat Logo" width="20" height="20">
+            </a>
+
+            <a href="https://codepen.io/Sudheer-Debbati" target="_blank" class="social-link" onclick="toggleClick(this)">
+                <img src="{{ url_for('static', filename='codepenlogo.png') }}" alt="CodePen Logo" width="20" height="20">
+            </a>
+
+            <a href="https://www.instagram.com/suddhu__patel?igshid=YzAwZjE1ZTI0Zg==" target="_blank" class="social-link" onclick="toggleClick(this)">
+                <img src="{{ url_for('static', filename='instagramlogo.png') }}" alt="Instagram Logo" width="20" height="20">
+            </a>
+        </div>
+    </div>
+
+    <div id="personal-info">
+        @sudheer debbati
+    </div>
+
+    <script>
+        function toggleClick(element) {
+            element.classList.toggle('clicked');
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
